@@ -88,24 +88,24 @@
     <RelativeLayout
         android:id="@+id/lyForgetGroup"
         android:layout_width="150dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="11dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
         android:layout_below="@+id/lyPasswordGroup"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="28dp"
-        android:layout_marginEnd="28dp">
+        android:layout_marginTop="2dp">
 
         <TextView
             android:id="@+id/tvForgetPwd"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="3dp"
-            android:layout_toEndOf="@+id/imgQuestion"
+            android:layout_height="20dp"
             android:layout_toRightOf="@+id/imgQuestion"
             android:text="@string/txt_forget"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="3dp"/>
 
         <ImageView
             android:id="@+id/imgQuestion"
@@ -114,6 +114,26 @@
             app:srcCompat="@drawable/question"
             android:layout_centerVertical="true"/>
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="33dp"
+        android:background="@drawable/btn_green_radius"
+        android:text="@string/btn_login"
+        android:layout_below="@+id/lyForgetGroup"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_register"
+        android:textColor="@color/white"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp" />
 
 
 </RelativeLayout>

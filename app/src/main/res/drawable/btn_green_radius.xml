@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!-- http://www.dibbus.com/2011/02/gradient-buttons-for-android/ -->
+<!--<selector xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--<item>-->
+    <!--<shape>-->
+        <!--<solid android:color="@color/green"></solid>-->
+        <!--<corners-->
+            <!--android:radius="6dp" />-->
+
+    <!--</shape>-->
+<!--</item>-->
+<!--</selector>-->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<item>
+    <shape android:shape="rectangle">
+        <solid android:color="@color/green"/>
+        <corners android:radius="6dp" />
+    </shape>
+</item>
+</selector>
