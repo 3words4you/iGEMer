@@ -1,6 +1,7 @@
 package yi.igemer;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,5 +20,15 @@ public class Login extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
+    }
+
+    public void loginClick(View v){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToRegister(View v){
+        Intent intent = new Intent(this, Register.class);
+        startActivity(intent);
     }
 }
