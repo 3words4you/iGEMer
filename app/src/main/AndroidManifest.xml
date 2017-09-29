@@ -11,9 +11,10 @@
         <activity android:name=".MainActivity" android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".Login"
-            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_login"
-            android:theme="@style/FullScreenTheme">
+            android:theme="@style/FullScreenTheme"
+            android:screenOrientation="sensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
