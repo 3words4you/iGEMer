@@ -12,82 +12,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-//        viewPager.setAdapter(new MyAdapter());
-//    }
-//
-//    class MyAdapter extends PagerAdapter {
-//
-//        // page number
-//        @Override
-//        public int getCount() {
-//            return 5;
-//        }
-//
-//        @Override
-//        public boolean isViewFromObject(View view, Object object) {
-//            return view == object;
-//        }
-//
-//        // init
-//        @Override
-//        public Object instantiateItem(ViewGroup container, int position) {
-//            // return super.instantiateItem(container, position);
-//            TextView tv = new TextView(MainActivity.this);
-//            tv.setGravity(Gravity.CENTER);
-//            tv.setTextSize(20);
-//            tv.setText("This is test view pager: " + position + "/4 --> scroll");
-//            ImageView iv = new ImageView(MainActivity.this);
-//
-//            switch (position) {
-//                case 0:
-//                    tv.setBackgroundResource(R.drawable.test);
-//                    tv.setHeight(200);
-//                    tv.hei
-//                    tv.layo
-//                    break;
-//                case 1:
-//                    tv.setBackgroundColor(Color.RED);
-//                    break;
-//                case 2:
-//                    tv.setBackgroundColor(Color.YELLOW);
-//                    break;
-//                case 3:
-//                    tv.setBackgroundColor(Color.BLUE);
-//                    break;
-//                case 4:
-//                    tv.setBackgroundColor(Color.CYAN);
-//                    break;
-//
-//            }
-//
-//            // add to ViewPager container
-//            container.addView(tv);
-//
-//            // return view
-//            return tv;
-//        }
-//
-//
-//        // destroy object
-//        @Override
-//        public void destroyItem(ViewGroup container, int position, Object object) {
-//            // super.destroyItem(container, position, object);
-//            container.removeView((View) object);
-//        }
-//    }≥
-// 图片资源
-private int[] mImages = {R.drawable.test, R.drawable.test,R.drawable.test,R.drawable.test};
+    private int[] mImages = {R.drawable.test, R.drawable.test,R.drawable.test,R.drawable.test};
     private List<ImageView> mList;
     Handler mHandler = new Handler();
 

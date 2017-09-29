@@ -87,32 +87,31 @@
 
     <RelativeLayout
         android:id="@+id/lyForgetGroup"
-        android:layout_width="150dp"
+        android:layout_width="250dp"
         android:layout_height="20dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
+        android:layout_alignEnd="@+id/lyPasswordGroup"
+        android:layout_alignRight="@+id/lyPasswordGroup"
         android:layout_below="@+id/lyPasswordGroup"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginTop="2dp">
 
         <TextView
             android:id="@+id/tvForgetPwd"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:layout_toRightOf="@+id/imgQuestion"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dp"
+            android:gravity="center_vertical"
             android:text="@string/txt_forget"
             android:textColor="@color/white"
-            android:layout_centerVertical="true"
-            android:gravity="center_vertical"
-            android:layout_marginLeft="3dp"/>
+            android:layout_alignParentRight="true"/>
 
         <ImageView
             android:id="@+id/imgQuestion"
             android:layout_width="14dp"
             android:layout_height="14dp"
+            android:layout_centerVertical="true"
             app:srcCompat="@drawable/question"
-            android:layout_centerVertical="true"/>
+            android:layout_toLeftOf="@+id/tvForgetPwd"/>
     </RelativeLayout>
 
     <Button
