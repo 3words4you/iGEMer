@@ -9,13 +9,15 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
-    private int[] mImages = {R.drawable.test, R.drawable.test,R.drawable.test,R.drawable.test};
-    private List<ImageView> mList;
-    Handler mHandler = new Handler();
+//
+//    private List<ImageView> mList;
+//    Handler mHandler = new Handler();
 
     private TextView tabHome;
     private TextView tabSearch;
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         selected();
         tabHome.setSelected(true);
         if(fHome==null){
-            fHome = new HomeFragment("homeFragment");
+            fHome = new HomeFragment();
             transaction.add(R.id.fragment_container,fHome);
         }else{
             transaction.show(fHome);
@@ -98,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 selected();
                 tabHome.setSelected(true);
                 if(fHome==null){
-                    fHome = new HomeFragment("homeFragment");
+                    fHome = new HomeFragment();
                     transaction.add(R.id.fragment_container,fHome);
                 }else{
                     transaction.show(fHome);
@@ -109,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 selected();
                 tabSearch.setSelected(true);
                 if(fSearch==null){
-                    fSearch = new HomeFragment("searchFragment");
+                    fSearch = new HomeFragment();
                     transaction.add(R.id.fragment_container,fSearch);
                 }else{
                     transaction.show(fSearch);
@@ -120,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 selected();
                 tabNews.setSelected(true);
                 if(fNews==null){
-                    fNews = new HomeFragment("newsFragment");
+                    fNews = new HomeFragment();
                     transaction.add(R.id.fragment_container,fNews);
                 }else{
                     transaction.show(fNews);
@@ -131,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 selected();
                 tabMe.setSelected(true);
                 if(fMe==null){
-                    fMe = new HomeFragment("meFragment");
+                    fMe = new HomeFragment();
                     transaction.add(R.id.fragment_container,fMe);
                 }else{
                     transaction.show(fMe);

@@ -9,6 +9,11 @@ public class News {
     private String title;
     private String createdAt;
     private String logo;
+    private String description;
+
+    public News(){
+
+    }
 
     public News(int newsID,String title,String createdAt,String logo){
         this.newsID = newsID;
@@ -48,4 +53,7 @@ public class News {
     public void setLogo(String logo) {
         this.logo = logo;
     }
+
+    public String getDescription(){return description;}
+    public void setDescription(String description) {this.description = description;}
 }

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.health.PidHealthStats;
+import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -17,6 +19,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,27 +29,21 @@ import java.util.List;
  */
 
 public class HomeFragment extends Fragment {
-    private String content;
-    private TextView mTextView;
     private ListView newsListView;
     private List<News> newsList;
     private NewsListAdapter newsAdapter;
-
     private int[] mImages = {R.drawable.test, R.drawable.test,R.drawable.test,R.drawable.test};
     private List<ImageView> mList;
     Handler mHandler = new Handler();
 
-    public HomeFragment(String content){
-        this.content = content;
-    }
+    public HomeFragment(){
 
+    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_fragment,container,false);
-//        mTextView = (TextView)view.findViewById(R.id.txt_content);
-//        mTextView.setText(context);
 
         final Context thisContext = container.getContext();
 
@@ -55,8 +53,14 @@ public class HomeFragment extends Fragment {
         mList = new ArrayList<>();
         for (int i = 0; i < mImages.length; i++) {
             ImageView imageView = new ImageView(thisContext);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            if(i==1 || i ==3){
+                Picasso.with(thisContext).load("http://oxuf82agx.bkt.clouddn.com/banner.jpg").into(imageView);
+            }
+            else{
+                imageView.setImageResource(mImages[i]);
+            }
 
-            imageView.setImageResource(mImages[i]);
 
             mList.add(imageView);
 
@@ -130,11 +134,12 @@ public class HomeFragment extends Fragment {
         //set up list view news
         newsListView = (ListView)view.findViewById(R.id.lvNews);
 
-        newsList = new ArrayList<>();
-        newsList.add(new News(1,"Title1","2017-01-02 10:23:12","http://icons.iconarchive.com/icons/graphicloads/medical-health/96/dna-icon.png"));
-        newsList.add(new News(2,"Title2","2017-01-02 10:23:12","http://icons.iconarchive.com/icons/iconshock/real-vista-education/128/laboratory-icon.png"));
-        newsList.add(new News(3,"Title3","2017-01-02 10:23:12","http://icons.iconarchive.com/icons/icons8/ios7/96/Healthcare-Virus-icon.png"));
-
+//        newsList = new ArrayList<>();
+//        newsList.add(new News(1,"Title1","2017-01-02 10:23:12","http://icons.iconarchive.com/icons/graphicloads/medical-health/96/dna-icon.png"));
+//        newsList.add(new News(2,"Title2","2017-01-02 10:23:12","http://icons.iconarchive.com/icons/iconshock/real-vista-education/128/laboratory-icon.png"));
+//        newsList.add(new News(3,"Title3","2017-01-02 10:23:12","http://icons.iconarchive.com/icons/icons8/ios7/96/Healthcare-Virus-icon.png"));
+        DatabaseHelper db = new DatabaseHelper(thisContext);
+        newsList = db.getNewsList();
         newsAdapter = new NewsListAdapter(thisContext,newsList);
 //        newsAdapter.notifyDataSetChanged();
         newsListView.setAdapter(newsAdapter);
@@ -144,6 +149,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(view.getContext(), NewsDetailActivity.class);
+                Bundle b = new Bundle();
+                b.putInt("newsID", Integer.parseInt(view.getTag().toString()));
+                intent.putExtras(b);
                 startActivity(intent);
             }
         });
