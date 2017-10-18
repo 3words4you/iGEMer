@@ -27,11 +27,15 @@
         </activity>
         <activity
             android:name=".Register"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".TeamDetailActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".NewsDetailActivity"
-            android:label="@string/title_activity_news_detail_"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"/>
+
+
     </application>
 
 </manifest>
