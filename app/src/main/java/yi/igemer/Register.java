@@ -21,23 +21,34 @@ public class Register extends AppCompatActivity {
     }
 
     public void registerClick(View v){
+        EditText etEmail = (EditText) findViewById(R.id.etEmail);
+        String email = etEmail.getText().toString();
+        EditText etPassword = (EditText) findViewById(R.id.etPassword);
+        String password = etPassword.getText().toString();
+
         //check input is valid,true:go to main page
-        if(isValid()){
-            Toast.makeText(this,"Register Successfully",Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(this,MainActivity.class);
-            startActivity(i);
+        if(isValid(email,password)){
+            DatabaseHelper db = new DatabaseHelper(this);
+            if(db.addUserData(email,password)){
+                Toast.makeText(this,"Register Successfully",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this,MainActivity.class);
+                startActivity(i);
+            }
+            else {
+                Toast.makeText(this, "Email is existed, Please login", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this, Login.class);
+                startActivity(i);
+            }
         }
     }
 
-    public Boolean isValid(){
-        EditText etEmail = (EditText) findViewById(R.id.etEmail);
-        String email = etEmail.getText().toString();
+    public Boolean isValid(String email,String password){
+
         if(email.trim().equals("")){
             Toast.makeText(this,"Email address is required",Toast.LENGTH_SHORT).show();
             return false;
         }
-        EditText etPassword = (EditText) findViewById(R.id.etPassword);
-        String password = etPassword.getText().toString();
+
         if(password.trim().equals("")){
             Toast.makeText(this,"Password is required",Toast.LENGTH_SHORT).show();
             return false;
