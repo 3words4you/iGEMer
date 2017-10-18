@@ -2,6 +2,7 @@ package yi.igemer;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -10,9 +11,13 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,24 +27,29 @@ import java.util.List;
  */
 
 public class HomeFragment extends Fragment {
-    private String context;
+    private String content;
     private TextView mTextView;
+    private ListView newsListView;
+    private List<News> newsList;
+    private NewsListAdapter newsAdapter;
 
     private int[] mImages = {R.drawable.test, R.drawable.test,R.drawable.test,R.drawable.test};
     private List<ImageView> mList;
     Handler mHandler = new Handler();
 
-    public HomeFragment(String context){
-        this.context = context;
+    public HomeFragment(String content){
+        this.content = content;
     }
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_fragment,container,false);
-        mTextView = (TextView)view.findViewById(R.id.txt_content);
-        mTextView.setText(context);
-        Context thisContext = container.getContext();
+//        mTextView = (TextView)view.findViewById(R.id.txt_content);
+//        mTextView.setText(context);
+
+        final Context thisContext = container.getContext();
 
         final ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
         final LinearLayout pointGroup = (LinearLayout) view.findViewById(R.id.pointgroup);
@@ -117,6 +127,31 @@ public class HomeFragment extends Fragment {
                 mHandler.postDelayed(this,3000);
             }
         },3000);
+
+
+        //set up list view news
+        newsListView = (ListView)view.findViewById(R.id.lvNews);
+
+        newsList = new ArrayList<>();
+        newsList.add(new News(1,"Title1","2017-01-02 10:23:12","http://icons.iconarchive.com/icons/graphicloads/medical-health/96/dna-icon.png"));
+        newsList.add(new News(2,"Title2","2017-01-02 10:23:12","http://icons.iconarchive.com/icons/iconshock/real-vista-education/128/laboratory-icon.png"));
+        newsList.add(new News(3,"Title3","2017-01-02 10:23:12","http://icons.iconarchive.com/icons/icons8/ios7/96/Healthcare-Virus-icon.png"));
+
+        newsAdapter = new NewsListAdapter(thisContext,newsList);
+//        newsAdapter.notifyDataSetChanged();
+        newsListView.setAdapter(newsAdapter);
+
+        newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(view.getContext(), NewsDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
         return view;
     }
 
