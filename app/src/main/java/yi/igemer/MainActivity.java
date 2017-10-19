@@ -2,6 +2,7 @@ package yi.igemer;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,7 +27,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FrameLayout ly_content;
 
-    private HomeFragment fHome,fSearch,fNews,fMe;
+    private HomeFragment fHome,fSearch;
+    private MeFragment fMe;
+    private NewsFragment fNews;
     private FragmentManager fragmentManager;
 
 
@@ -113,6 +116,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(fSearch==null){
                     fSearch = new HomeFragment();
                     transaction.add(R.id.fragment_container,fSearch);
+                    Intent i = new Intent(this,TeamDetailActivity.class);
+                    startActivity(i);
                 }else{
                     transaction.show(fSearch);
                 }
@@ -122,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 selected();
                 tabNews.setSelected(true);
                 if(fNews==null){
-                    fNews = new HomeFragment();
+                    fNews = new NewsFragment();
                     transaction.add(R.id.fragment_container,fNews);
                 }else{
                     transaction.show(fNews);
@@ -133,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 selected();
                 tabMe.setSelected(true);
                 if(fMe==null){
-                    fMe = new HomeFragment();
+                    fMe = new MeFragment();
                     transaction.add(R.id.fragment_container,fMe);
                 }else{
                     transaction.show(fMe);

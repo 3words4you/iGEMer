@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/defaultGray">
     <RelativeLayout
         android:id="@+id/tbltIGEM"
         android:layout_width="match_parent"
@@ -34,8 +34,7 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"/>
+            android:layout_height="206dp"/>
 
         <LinearLayout
             android:id="@+id/pointgroup"
@@ -52,13 +51,35 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/layoutHomeiGEMNews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_gray_button">
+
+            <TextView
+                android:id="@+id/tvHomeiGEMNews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="iGEM News"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
         <ListView
             android:id="@+id/lvNews"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@+id/layoutHomeiGEMNews"
             />
+
     </RelativeLayout>
 
     <!--<TextView-->
