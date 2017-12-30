@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(fSearch==null){
                     fSearch = new HomeFragment();
                     transaction.add(R.id.fragment_container,fSearch);
-                    Intent i = new Intent(this,TeamDetailActivity.class);
+                    Intent i = new Intent(this,TeamListActivity.class);
                     startActivity(i);
                 }else{
                     transaction.show(fSearch);

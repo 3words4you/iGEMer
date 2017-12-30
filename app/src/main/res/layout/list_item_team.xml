@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <LinearLayout
+        android:id="@+id/ly_team_list_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txt_team_list_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NPR_UEW"
+            android:textColor="@color/green"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_team_list_kind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="Collegiate"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/lt_team_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/ly_team_list_forward"
+        android:layout_below="@id/ly_team_list_name">
+        <LinearLayout
+            android:id="@+id/ly_team_list_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+            <TextView
+                android:id="@+id/txt_team_list_region"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NA" />
+            <TextView
+                android:id="@+id/txt_team_list_country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Canada" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_team_list_track"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ly_team_list_area"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+            <TextView
+                android:id="@+id/txt_team_list_track"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Track:"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/txt_team_list_track_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Diagnostics(P)"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_team_list_abstract"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ly_team_list_track"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+            <TextView
+                android:id="@+id/txt_team_list_abstract"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Abstract:"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/txt_team_list_abstract_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Gut Adventure of Agent Gutrio"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ly_team_list_forward"
+        android:layout_width="20dp"
+        android:layout_height="78dp"
+        android:layout_below="@id/ly_team_list_name"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/team_forward"
+            android:scaleType="fitXY" />
+    </RelativeLayout>
+
+</RelativeLayout>

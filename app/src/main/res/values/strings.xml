@@ -15,4 +15,5 @@
     <string name="tv_header_team">Team Info</string>
     <string name="tv_header_news">News List</string>
     <string name="txt_more">more ></string>
+    <string name="tv_header_teams_list">iGEM Team List</string>
 </resources>
