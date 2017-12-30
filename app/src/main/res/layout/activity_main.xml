@@ -7,26 +7,7 @@
     tools:context="yi.igemer.MainActivity">
 
 
-    <RelativeLayout
-        android:id="@+id/tbltIGEM"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_centerHorizontal="true"
-        android:background="@color/green">
 
-        <TextView
-            android:id="@+id/tvIGEM"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:gravity="center"
-            android:text="@string/txt_igem"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/tab_menu"
@@ -84,11 +65,18 @@
             android:textStyle="bold"
             android:paddingTop="3dp"/>
     </LinearLayout>
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/tab_menu"
         android:background="@color/white">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </ScrollView>
     </FrameLayout>
 </RelativeLayout>

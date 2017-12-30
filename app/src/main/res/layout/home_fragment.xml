@@ -24,71 +24,76 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="206dp"
-        android:layout_below="@+id/tbltIGEM"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="206dp"/>
-
-        <LinearLayout
-            android:id="@+id/pointgroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
-        </LinearLayout>
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white">
+        android:layout_height="wrap_content"
+        >
 
         <RelativeLayout
-            android:id="@+id/layoutHomeiGEMNews"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border_gray_button">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tvHomeiGEMNews"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/layout_home_banner"
+                android:layout_width="match_parent"
+                android:layout_height="206dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                >
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="206dp" />
+
+                <LinearLayout
+                    android:id="@+id/pointgroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"></LinearLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutHomeListNews"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="iGEM News"
-                android:textColor="@color/black"
-                android:textSize="18dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:textStyle="bold" />
+                android:layout_below="@+id/layout_home_banner"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:id="@+id/layoutHomeiGEMNews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_gray_button">
+
+                    <TextView
+                        android:id="@+id/tvHomeiGEMNews"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="iGEM News"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <ListView
+                    android:id="@+id/lvNews"
+                    android:layout_width="match_parent"
+                    android:layout_height="287dp"
+                    android:layout_below="@+id/layoutHomeiGEMNews" />
+
+            </RelativeLayout>
+
         </RelativeLayout>
+    </ScrollView>
 
-        <ListView
-            android:id="@+id/lvNews"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/layoutHomeiGEMNews"
-            />
-
-    </RelativeLayout>
-
-    <!--<TextView-->
-        <!--android:id="@+id/txt_content"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:gravity="center"-->
-        <!--android:text="home fragment"-->
-        <!--android:textColor="@color/black_overlay"-->
-        <!--android:textSize="20sp"/>-->
 
 </LinearLayout>
