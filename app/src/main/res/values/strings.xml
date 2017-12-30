@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">IGEMer</string>
-
     <string name="title_activity_login">Login</string>
     <string name="igemer_activity_login">iGEMer</string>
     <string name="hint_email">Email Address</string>
@@ -14,4 +13,6 @@
     <string name="txt_igem">iGEM</string>
     <string name="title_activity_news_detail_">NewsDetail_Activity</string>
     <string name="tv_header_team">Team Info</string>
+    <string name="tv_header_news">News List</string>
+    <string name="txt_more">more ></string>
 </resources>

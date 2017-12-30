@@ -36,6 +36,9 @@ public class NewsDetailActivity extends AppCompatActivity {
 
     public void backToMain(View v){
         Intent i = new Intent(this,MainActivity.class);
+        Bundle b = new Bundle();
+        b.putString("tab", "tabNews");
+        i.putExtras(b);
         startActivity(i);
     }
 }

@@ -20,16 +20,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //    private List<ImageView> mList;
 //    Handler mHandler = new Handler();
 
-    private TextView tabHome;
-    private TextView tabSearch;
-    private TextView tabNews;
-    private TextView tabMe;
+    public TextView tabHome;
+    public TextView tabSearch;
+    public TextView tabNews;
+    public TextView tabMe;
 
     private FrameLayout ly_content;
 
-    private HomeFragment fHome,fSearch;
-    private MeFragment fMe;
-    private NewsFragment fNews;
+    public HomeFragment fHome,fSearch;
+    public MeFragment fMe;
+    public NewsFragment fNews;
     private FragmentManager fragmentManager;
 
 
@@ -40,18 +40,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         bindView();
 
-        //default show home fragment
+        //show fragment
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         hideAllFragment(transaction);
         selected();
-        tabHome.setSelected(true);
-        if(fHome==null){
-            fHome = new HomeFragment();
-            transaction.add(R.id.fragment_container,fHome);
-        }else{
-            transaction.show(fHome);
+
+        Bundle b = getIntent().getExtras();
+        if(b!=null){
+            String tabShow =b.getString("tab");
+            switch(tabShow){
+                case "tabNews":
+                    tabNews.setSelected(true);
+                    if(fNews==null){
+                        fNews = new NewsFragment();
+                        transaction.add(R.id.fragment_container,fNews);
+                    }else{
+                        transaction.show(fNews);
+                    }
+                    transaction.commit();
+                    break;
+                default:
+                    tabHome.setSelected(true);
+                    if(fHome==null){
+                        fHome = new HomeFragment();
+                        transaction.add(R.id.fragment_container,fHome);
+                    }else{
+                        transaction.show(fHome);
+                    }
+                    transaction.commit();
+            }
         }
-        transaction.commit();
+        else{
+            tabHome.setSelected(true);
+            if(fHome==null){
+                fHome = new HomeFragment();
+                transaction.add(R.id.fragment_container,fHome);
+            }else{
+                transaction.show(fHome);
+            }
+            transaction.commit();
+        }
+
 
     }
 

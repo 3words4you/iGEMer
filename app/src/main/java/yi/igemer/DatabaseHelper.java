@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE "+ USER_TABLE + " (userID INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, password TEXT)");
         db.execSQL("CREATE TABLE news (newsID INTEGER PRIMARY KEY AUTOINCREMENT, logo TEXT, description TEXT, title text, createdAt TEXT)");
         db.execSQL("INSERT INTO news (newsID,logo,description,title,createdAt) VALUES(1,'http://oxuf82agx.bkt.clouddn.com/banner.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec velit felis, interdum tempus viverra eget, mattis et quam. Nam tristique, orci accumsan luctus egestas, ex tellus consequat eros, eget pellentesque dolor justo in elit. Integer bibendum, quam ut tempus consequat, sapien sem mollis nibh, at hendrerit ante leo nec est. Nulla quis interdum leo. Cras nec neque et lectus gravida blandit a vitae dolor. Vestibulum imperdiet fringilla lacus. Phasellus blandit mollis lorem, consequat interdum nibh. Vestibulum non eros eu sem pharetra lacinia. Cras tristique hendrerit dui, et viverra nisi vestibulum vitae. Nullam suscipit risus in lectus sodales ornare. Nunc imperdiet neque enim, ut imperdiet eros dapibus eu. Vestibulum tortor erat, mattis at accumsan at, facilisis ut justo. Suspendisse potenti. Vivamus tellus purus, semper sed facilisis vitae, efficitur in quam. Nullam ultrices luctus tincidunt. Quisque erat ligula, dapibus a lectus et, elementum vestibulum justo.','Sample Title 1','2017-01-01 00:00:00'),(2,'http://oxuf82agx.bkt.clouddn.com/banner.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec velit felis, interdum tempus viverra eget, mattis et quam. Nam tristique, orci accumsan luctus egestas, ex tellus consequat eros, eget pellentesque dolor justo in elit. Integer bibendum, quam ut tempus consequat, sapien sem mollis nibh, at hendrerit ante leo nec est. Nulla quis interdum leo. Cras nec neque et lectus gravida blandit a vitae dolor. Vestibulum imperdiet fringilla lacus. Phasellus blandit mollis lorem, consequat interdum nibh. Vestibulum non eros eu sem pharetra lacinia. Cras tristique hendrerit dui, et viverra nisi vestibulum vitae. Nullam suscipit risus in lectus sodales ornare. Nunc imperdiet neque enim, ut imperdiet eros dapibus eu. Vestibulum tortor erat, mattis at accumsan at, facilisis ut justo. Suspendisse potenti. Vivamus tellus purus, semper sed facilisis vitae, efficitur in quam. Nullam ultrices luctus tincidunt. Quisque erat ligula, dapibus a lectus et, elementum vestibulum justo.','Sample Title 2','2017-01-01 00:00:00'),(3,'http://oxuf82agx.bkt.clouddn.com/banner.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec velit felis, interdum tempus viverra eget, mattis et quam. Nam tristique, orci accumsan luctus egestas, ex tellus consequat eros, eget pellentesque dolor justo in elit. Integer bibendum, quam ut tempus consequat, sapien sem mollis nibh, at hendrerit ante leo nec est. Nulla quis interdum leo. Cras nec neque et lectus gravida blandit a vitae dolor. Vestibulum imperdiet fringilla lacus. Phasellus blandit mollis lorem, consequat interdum nibh. Vestibulum non eros eu sem pharetra lacinia. Cras tristique hendrerit dui, et viverra nisi vestibulum vitae. Nullam suscipit risus in lectus sodales ornare. Nunc imperdiet neque enim, ut imperdiet eros dapibus eu. Vestibulum tortor erat, mattis at accumsan at, facilisis ut justo. Suspendisse potenti. Vivamus tellus purus, semper sed facilisis vitae, efficitur in quam. Nullam ultrices luctus tincidunt. Quisque erat ligula, dapibus a lectus et, elementum vestibulum justo.','Sample Title 3','2017-01-01 00:00:00')");
-        db.execSQL("CREATE TABLE teams (teamID INTEGER PRIMARY KEY AUTOINCREMENT, logo TEXT, description TEXT, name text, school TEXT, wiki TEXT,region TEXT, country TEXT,track TEXT, kind TEXT, application TEXT, serial TEXT,attend TEXT createdAt TEXT)");
+        db.execSQL("CREATE TABLE teams (teamID INTEGER PRIMARY KEY AUTOINCREMENT, logo TEXT, description TEXT, name text, school TEXT, wiki TEXT,region TEXT, country TEXT,track TEXT, kind TEXT, application TEXT, serial TEXT,attend TEXT, createdAt TEXT)");
 
     }
 
@@ -74,9 +74,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return news;
     }
 
-    public List<News> getNewsList() {
+    public List<News> getNewsList(String type) {
         List<News> newsList= new ArrayList<>();
-        Cursor c = sqliteDB.rawQuery("SELECT newsID,title,createdAt,logo FROM news", null);
+        String query = "SELECT newsID,title,createdAt,logo FROM news";
+
+        if(type=="hot"){
+            query += " LIMIT 3";
+        }
+        Cursor c = sqliteDB.rawQuery(query, null);
         c.moveToFirst();
 
         while (!c.isAfterLast()) {

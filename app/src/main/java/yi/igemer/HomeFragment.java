@@ -1,6 +1,7 @@
 package yi.igemer;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ import java.util.List;
  */
 
 public class HomeFragment extends Fragment {
+
     private ListView newsListView;
     private List<News> newsList;
     private NewsListAdapter newsAdapter;
@@ -139,7 +141,7 @@ public class HomeFragment extends Fragment {
 //        newsList.add(new News(2,"Title2","2017-01-02 10:23:12","http://icons.iconarchive.com/icons/iconshock/real-vista-education/128/laboratory-icon.png"));
 //        newsList.add(new News(3,"Title3","2017-01-02 10:23:12","http://icons.iconarchive.com/icons/icons8/ios7/96/Healthcare-Virus-icon.png"));
         DatabaseHelper db = new DatabaseHelper(thisContext);
-        newsList = db.getNewsList();
+        newsList = db.getNewsList("hot");
         newsAdapter = new NewsListAdapter(thisContext,newsList);
 //        newsAdapter.notifyDataSetChanged();
         newsListView.setAdapter(newsAdapter);
@@ -157,6 +159,18 @@ public class HomeFragment extends Fragment {
         });
 
 
+        //set up more click
+        TextView tvMore = (TextView) view.findViewById(R.id.tvHomeMore);
+        tvMore.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), MainActivity.class);
+                Bundle b = new Bundle();
+                b.putString("tab", "tabNews");
+                intent.putExtras(b);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
@@ -188,4 +202,5 @@ public class HomeFragment extends Fragment {
             container.removeView((View) object);
         }
     }
+
 }

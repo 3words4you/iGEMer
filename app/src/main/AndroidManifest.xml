@@ -33,9 +33,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".NewsDetailActivity"
-            android:theme="@style/AppTheme"/>
-
-
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
