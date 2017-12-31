@@ -172,6 +172,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }else{
                     transaction.show(fMe);
                 }
+                ImageView iv = (ImageView) v.findViewById(R.id.imgDownloadFile);
+                FileDownloadTask downloadTask = new FileDownloadTask("http://oxuf82agx.bkt.clouddn.com/banner.jpg",this);
+                downloadTask.execute();
                 break;
         }
 
