@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "101675546247",
+    "firebase_url": "https://igemer-7d1b6.firebaseio.com",
+    "project_id": "igemer-7d1b6",
+    "storage_bucket": "igemer-7d1b6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101675546247:android:66e5a7cee51784d3",
+        "android_client_info": {
+          "package_name": "yi.igemer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "101675546247-baa2m0mejtqna974k9mhmeliun7jon3g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "yi.igemer",
+            "certificate_hash": "598067bb990d43eeee3910f75f747561cebfa79c"
+          }
+        },
+        {
+          "client_id": "101675546247-von3vec36tig1qgj8d57ls75rgfdb424.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgjthyZ6ZF9lNQM06apgsH8l-JWz_mjc4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "101675546247-von3vec36tig1qgj8d57ls75rgfdb424.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
