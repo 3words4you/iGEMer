@@ -41,6 +41,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         bindView();
 
+        //start background service
+        Intent serviceIntent = new Intent(this,MyService.class);
+        startService(serviceIntent);
+
         //show fragment
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         hideAllFragment(transaction);
