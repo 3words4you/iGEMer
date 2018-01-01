@@ -26,14 +26,18 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/ivNewsBack"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-            android:onClick="backToMain"
-            app:srcCompat="@drawable/back" />
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:onClick="backToMain">
+            <ImageView
+                android:id="@+id/ivNewsBack"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                app:srcCompat="@drawable/back" />
+        </RelativeLayout>
 
     </RelativeLayout>
 
