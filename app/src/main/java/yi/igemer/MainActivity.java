@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FrameLayout ly_content;
 
-    public HomeFragment fHome,fSearch;
+    public HomeFragment fHome;
+    public SearchFragment fSearch;
     public MeFragment fMe;
     public NewsFragment fNews;
     private FragmentManager fragmentManager;
@@ -56,6 +57,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         transaction.add(R.id.fragment_container,fNews);
                     }else{
                         transaction.show(fNews);
+                    }
+                    transaction.commit();
+                    break;
+                case "tabSearch":
+                    tabSearch.setSelected(true);
+                    if(fSearch==null){
+                        fSearch = new SearchFragment();
+                        transaction.add(R.id.fragment_container,fSearch);
+                    }else{
+                        transaction.show(fSearch);
                     }
                     transaction.commit();
                     break;
@@ -143,10 +154,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 selected();
                 tabSearch.setSelected(true);
                 if(fSearch==null){
-                    fSearch = new HomeFragment();
+                    fSearch = new SearchFragment();
                     transaction.add(R.id.fragment_container,fSearch);
-                    Intent i = new Intent(this,TeamListActivity.class);
-                    startActivity(i);
                 }else{
                     transaction.show(fSearch);
                 }

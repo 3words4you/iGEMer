@@ -30,16 +30,16 @@ public class Team {
         this.logo=logo;
         this.description=description;
         this.name = name;
-        this.name = school;
-        this.name = wiki;
-        this.name = region;
-        this.name = country;
-        this.name = track;
-        this.name = kind;
-        this.name = application;
-        this.name = serial;
-        this.name = attend;
-        this.name = createdAt;
+        this.school = school;
+        this.wiki = wiki;
+        this.region = region;
+        this.country = country;
+        this.track = track;
+        this.kind = kind;
+        this.application = application;
+        this.serial = serial;
+        this.attend = attend;
+        this.createdAt = createdAt;
     }
 
 

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/defaultGray">
+
+    <LinearLayout
+        android:id="@+id/tbltIGEMSearch"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/green"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="6"
+            android:inputType="textPersonName"
+            android:hint="school \ name \ track"
+            android:textColorHint="@color/gray"
+            android:textAlignment="center"
+            android:background="@drawable/input_box_white_bg_round"
+            android:enabled="false"
+            android:focusable="false"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Search"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_show_all_team"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="33dp"
+        android:textColor="@color/green"
+        android:background="@drawable/input_box_white_bg_round"
+        android:text="Show All Team List" />
+
+    <TextView
+        android:id="@+id/tv_hot_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tbltIGEMSearch"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="82dp"
+        android:textSize="20sp"
+        android:text="Hot Searches" />
+
+    <TextView
+        android:id="@+id/tv_hot1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_hot_search"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/green"
+        android:textSize="23dp"
+        android:text="Canada Teams" />
+
+    <TextView
+        android:id="@+id/tv_hot2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_hot1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/green"
+        android:textSize="23dp"
+        android:text="Ontario Schools" />
+
+
+</RelativeLayout>

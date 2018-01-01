@@ -1,6 +1,7 @@
 package yi.igemer;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -8,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -18,6 +21,7 @@ import java.util.List;
 public class TeamListAdapter extends BaseAdapter {
     private Context mContext;
     private List<Team> mTeamList;
+    private TextView tvName,tvRegion,tvCountry,tvTrack,tvKind,tvAbstract;
 
     public TeamListAdapter(Context mContext, List<Team> mTeamList) {
         this.mContext = mContext;
@@ -42,14 +46,19 @@ public class TeamListAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         View v = View.inflate(mContext,R.layout.list_item_team,null);
-//        ImageView ivLogo = (ImageView)v.findViewById(R.id.ivNewsLogo);
-//        TextView tvTitle = (TextView)v.findViewById(R.id.tvNewsTitle);
-//        TextView tvCreatedAt = (TextView)v.findViewById(R.id.tvNewsCreatedAt);
-//        tvTitle.setText(mNewsList.get(i).getTitle());
-//        tvCreatedAt.setText(mNewsList.get(i).getCreatedAt());
-//
-//        String logo = mNewsList.get(i).getLogo();
-//        Picasso.with(v.getContext()).load(logo).into(ivLogo);
+        tvName = (TextView)v.findViewById(R.id.txt_team_list_name);
+        tvRegion = (TextView)v.findViewById(R.id.txt_team_list_region);
+        tvCountry = (TextView)v.findViewById(R.id.txt_team_list_country);
+        tvKind = (TextView)v.findViewById(R.id.txt_team_list_kind);
+        tvTrack = (TextView)v.findViewById(R.id.txt_team_list_track_value);
+        tvAbstract = (TextView)v.findViewById(R.id.txt_team_list_abstract_value);
+
+        tvName.setText(mTeamList.get(i).getName());
+        tvRegion.setText(mTeamList.get(i).getRegion());
+        tvCountry.setText(mTeamList.get(i).getCountry());
+        tvKind.setText(mTeamList.get(i).getKind());
+        tvTrack.setText(mTeamList.get(i).getTrack());
+        tvAbstract.setText(mTeamList.get(i).getDescription());
         v.setTag(mTeamList.get(i).getTeamID());
         return v;
     }
