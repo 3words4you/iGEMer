@@ -16,4 +16,9 @@
     <string name="tv_header_news">News List</string>
     <string name="txt_more">more ></string>
     <string name="tv_header_teams_list">iGEM Team List</string>
+    <string name="tv_header_me">Me</string>
+    <string name="about">About</string>
+    <string name="contact">Contact Us</string>
+    <string name="picture">Picture</string>
+    <string name="download_picture">Download Picture</string>
 </resources>

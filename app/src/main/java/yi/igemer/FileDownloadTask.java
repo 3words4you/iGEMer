@@ -3,11 +3,18 @@ package yi.igemer;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.util.Log;
+import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.webkit.URLUtil;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.BufferedInputStream;
@@ -31,10 +38,13 @@ public class FileDownloadTask extends AsyncTask<String,Integer,String>{
     private String url;
     private ProgressDialog progressDialog;
     private Context mContext;
+    private ImageView iv;
+    private File file;
 
-    public FileDownloadTask(String url,Context context){
+    public FileDownloadTask(String url,Context context,ImageView iv){
         this.url = url;
         this.mContext = context;
+        this.iv = iv;
     }
 
     @Override
@@ -60,7 +70,7 @@ public class FileDownloadTask extends AsyncTask<String,Integer,String>{
             }
 
             String nameOfFile = URLUtil.guessFileName(url,null, MimeTypeMap.getFileExtensionFromUrl(url));
-            File file = new File(rootDirectory, nameOfFile);
+            file = new File(rootDirectory, nameOfFile);
 
             InputStream inputStream = connection.getInputStream();
             OutputStream outputStream = new FileOutputStream(file);
@@ -100,7 +110,9 @@ public class FileDownloadTask extends AsyncTask<String,Integer,String>{
     protected void onPostExecute(String result) {
         progressDialog.hide();
         Toast.makeText(mContext,result,Toast.LENGTH_SHORT).show();
-
+        if(file.exists()){
+            iv.setImageDrawable(Drawable.createFromPath(file.getAbsolutePath()));
+        }
     }
 }
 
